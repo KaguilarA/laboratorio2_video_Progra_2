@@ -50,4 +50,10 @@ public class Video {
     {
         return genero;
     }
+
+    @Override
+    public String toString() {
+        return "Video{" + "titulo=" + titulo + ", actor=" + actor + ", genero=" + genero + '}';
+    }
+    
 }

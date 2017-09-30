@@ -6,11 +6,11 @@ package laboratorio2;
  */
 
 import java.time.*;
+import java.util.Date;
 
 public class Cliente {
     private String nombre, apellido, direccion, cedula;
-    private int numContrato;
-    private LocalDate fechaRegistro = LocalDate.now();
+    private int numContrato; 
     private static int id;
     
     //Construtores
@@ -19,11 +19,11 @@ public class Cliente {
     }
     
     public Cliente(String pnombre, String papellido, String pcedula, String pdireccion, int pnumcontrato){
-        this.setNombre(pnombre);
-        this.setApellido(papellido);
-        this.setCedula(pcedula);
-        this.setDireccion(pdireccion);
-        this.setNumContrato(pnumcontrato);
+        this.nombre = pnombre;
+        this.apellido = papellido;
+        this.cedula = pcedula;
+        this.direccion = pdireccion;
+        this.numContrato = pnumcontrato;
         id++;
     }
     
@@ -64,6 +64,11 @@ public class Cliente {
     }
     public int getNumContrato() {
         return numContrato;
+    }
+
+    @Override
+    public String toString() {
+        return  nombre + " " + apellido + " " + direccion + " " + cedula + " " + numContrato ;
     }
 
 }

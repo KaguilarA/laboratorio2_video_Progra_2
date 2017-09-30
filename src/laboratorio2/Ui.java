@@ -59,10 +59,10 @@ public class Ui {
                listarTienda();
             break;
             case 5:
-               //listarVideo();
+               listarVideo();
             break;
             case 6:
-               //listarClientes();
+               listarClientes();
             break;
             case 7:
                 salir = true;
@@ -91,6 +91,8 @@ public class Ui {
         
         if(resultado == true){
             out.println("¡Registro de usuario exitoso!");
+            listarTienda();
+            
         }else{
             out.println("El usuario ya se encuentra registrado");
         }
@@ -117,7 +119,7 @@ public class Ui {
         out.println("Digite el n\u00famero de contrato");
         numeroContrato = Integer.parseInt(in.readLine());
         
-        resultado = cl.registrarCliente(nombre, apellido, cedula, direccion, numeroContrato);
+        resultado = Cl.registrarCliente(nombre, apellido, cedula, direccion, numeroContrato);
         
         if(resultado == true){
             out.println("¡Registro de usuario exitoso!");
@@ -150,12 +152,25 @@ public class Ui {
     }
     
     public static void listarTienda(){
-        ArrayList<Tienda> listaTiendas = new ArrayList<>();
+        String [] listaTiendas;
+        listaTiendas = Cl.getTiendas();
+        int tamanno = listaTiendas.length;
         
-        listaTiendas = cl.listaTiendas();
-        
-        for(int i=0; i<listaTiendas.size(); i++){
-            out.println("El nombre de la tienda de la tienda es: " + listaTiendas.get(i).getNombreTienda() + ", la direccion de la tienda es: " + listaTiendas.get(i).getDireccion());
+        if(tamanno != 0){
+            for(int i=0; i < tamanno; i++){
+                out.println(listaTiendas[i] + "\n");
+                //out.println("El nombre de la tienda de la tienda es: " + listaTiendas.get(i).getNombreTienda() + ", la direccion de la tienda es: " + listaTiendas.get(i).getDireccion());
+            }
+        }else{
+            out.println("Aún no hay tiendas registradas.");
+            
         }
+    }
+    
+    public static void listarVideo(){
+        
+    }
+    public static void listarClientes(){
+        
     }
 }

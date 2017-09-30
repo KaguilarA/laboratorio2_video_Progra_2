@@ -7,12 +7,13 @@ package laboratorio2;
 import java.util.ArrayList;
 
 public class Tienda {
-
+    // Propiedades del objetos
     private String nombreTienda, direccion, cedJuridica;
-    private ArrayList<Video> listaVideos = new ArrayList<>();
-    private ArrayList<Cliente> listaClientes = new ArrayList<>();
+    private ArrayList<Video> listaVideos;
+    private ArrayList<Cliente> listaClientes;
     private static int id;
     
+    // Constructor por defecto
     public Tienda()
     {
         id++;
@@ -23,6 +24,8 @@ public class Tienda {
         this.setNombreTienda(pnombre);
         this.setDireccion(pdireccion);
         this.setCedTienda(pcedula);
+        this.listaVideos = new ArrayList<Video>();
+        this.listaClientes = new ArrayList<Cliente>();
         id++;
     }
     
@@ -66,5 +69,10 @@ public class Tienda {
     public void setListaClientes(ArrayList<Cliente> listaClientes) {
         this.listaClientes = listaClientes;
     }
-  
+
+    @Override
+    public String toString() {
+        return "Tienda{" + "nombreTienda=" + nombreTienda + ", direccion=" + direccion + ", cedJuridica=" + cedJuridica + ", listaVideos=" + listaVideos + ", listaClientes=" + listaClientes + '}';
+    }
+    
 }
